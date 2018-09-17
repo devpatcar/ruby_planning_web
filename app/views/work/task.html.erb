@@ -1,0 +1,23 @@
+<h1><%= @task.name %></h1>
+<div class="d-flex w-100">
+  <%= link_to "/dashboard/"+@group_id.to_s+"/work", class: "btn btn-primary" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+</div>
+<div class="card text-center">
+  <div class="card-header">
+    </label><%= @task.description %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% if @task.done %>
+      <li class="list-group-item"><label>Result:</label><%= @task.result %></li>
+      <li class="list-group-item"><label>Time:</label><%= @task.updated_at %></li>
+    <% else %>
+      <%= form_tag("/dashboard/"+ @group_id +"/work/"+@task.id.to_s+"/submit", method: "put") do %>
+        <%= hidden_field(:task, :id) %>
+        <li class="list-group-item"><%= text_field(:task, :result, placeholder: "Answer here ...") %></li>
+        <li class="list-group-item"><%= submit_tag("Submit", class: "btn btn-success") %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>

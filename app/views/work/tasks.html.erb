@@ -1,0 +1,27 @@
+<h1>Tasks</h1>
+<div class="d-flex w-100">
+  <%= link_to '/', class: "btn btn-primary" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+</div>
+<div class="list-group">
+  <% @tasks.each do |task| %>
+    <% if task.done %>
+      <div class="list-group-item list-group-item-success flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= task.name %></h5>
+          <small><%= octicon "check" %></small>
+        </div>
+        <p class="mb-1"><%= task.description %></p>
+      </a>
+      </div>
+    <% else %>
+      <a href="/dashboard/<%= @group_id %>/work/task/<%= task.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= task.name %></h5>
+        </div>
+        <p class="mb-1"><%= task.description %></p>
+      </a>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plan Ruby</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  	<body class="is-preload">
+    <% if logged_in? %>
+      <%= render 'layouts/header' %>
+      <div class="container text-center">
+        <%= yield %>
+      </div>
+    <% else %>
+      <div class="container text-center">
+        <div class="card">
+          <%= octicon "checklist", width: 128, class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title">Planning - Work - Documention</h5>
+          </div>
+          <%= yield %>
+        </div>
+			</div>
+    <% end %>
+  </body>
+</html>

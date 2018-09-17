@@ -1,0 +1,14 @@
+<%= form_for(:session, url: login_path) do |f| %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email:" %>
+    </li>
+    <li class="list-group-item">
+      <%= f.password_field :password, class: 'form-control', placeholder: "Password:" %>
+    </li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Signup', signup_path, class: "btn btn-secondary btn-lg btn-block" %>
+    <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>

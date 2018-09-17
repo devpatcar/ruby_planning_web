@@ -1,0 +1,13 @@
+<h1>Dashboards</h1>
+<div class="d-flex flex-row-reverse w-100">
+  <%= link_to 'dashboard/new', class: "btn btn-success" do %>
+    <%= octicon "plus" %> New
+  <% end %>
+</div>
+<div class="list-group">
+  <% @groups.each do |group| %>
+    <a href="/dashboard/edit/<%= group.id %>" class="list-group-item list-group-item-action"><%= group.name %> - <%= group.description %></a>
+  <% end %>
+</div>
+
+

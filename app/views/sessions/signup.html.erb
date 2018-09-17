@@ -1,0 +1,20 @@
+<% provide(:title, "Signup") %>
+<h1>Signup</h1>
+
+<div class="row">
+  <div class="col-6 col-12-mobilep">
+    <%= form_for(:session, url: signup_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :comfirm_password %>
+      <%= f.password_field :comfirm_password, class: 'form-control' %>
+
+      <%= f.submit "Signup", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<h1>Tasks</h1>
+<div class="d-flex justify-content-between w-100">
+  <%= link_to '/dashboard/edit/'+ @group_id, class: "btn btn-primary" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+  <%= link_to "/dashboard/"+ @group_id +"/tasks/new", class: "btn btn-success" do %>
+    <%= octicon "plus" %> New
+  <% end %>
+</div>
+<div class="list-group">
+  <% @tasks.each do |task| %>
+    <a href="/dashboard/<%= @group_id %>/tasks/edit/<%= task.id %>" class="list-group-item list-group-item-action"><%= task.name %></a>
+  <% end %>
+</div>

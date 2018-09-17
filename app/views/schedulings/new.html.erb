@@ -1,0 +1,57 @@
+<h1>Create Scheduling</h1>
+<div class="d-flex w-100">
+  <%= link_to '/dashboard/'+ @group_id +'/schedulings', class: "btn btn-primary" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+</div>
+<%= form_tag("/dashboard/"+ @group_id +"/schedulings/create", method: "post") do %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <%= label_tag(:name, "Name:") %>
+    <%= text_field_tag(:name) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:description, "Description:") %>
+    <%= text_field_tag(:description) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:start_date, "Start dat:") %>
+    <%= date_field_tag(:start_date) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:end_date, "End date:") %>
+    <%= date_field_tag(:end_date) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:monday, "Monday:") %>
+    <%= check_box_tag(:monday) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:tuesday, "Tuesday:") %>
+    <%= check_box_tag(:tuesday) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:wednesday, "Wednesday:") %>
+    <%= check_box_tag(:wednesday) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:thursday, "Thursday:") %>
+    <%= check_box_tag(:thursday) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:friday, "Friday:") %>
+    <%= check_box_tag(:friday) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:saturday, "Saturday:") %>
+    <%= check_box_tag(:saturday) %>
+  </li>
+  <li class="list-group-item">
+    <%= label_tag(:sunday, "Sunday:") %>
+    <%= check_box_tag(:sunday) %>
+  </li>
+  <li class="list-group-item">
+    <%= submit_tag("Create", class: "btn btn-success", data: { disable_with: "Creating scheduling..."}) %>
+  </li>
+  </ul>
+<% end %>

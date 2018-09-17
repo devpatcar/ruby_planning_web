@@ -1,0 +1,65 @@
+<h1>Edit</h1>
+<div class="d-flex w-100 justify-content-between">
+  <%= link_to '/dashboard/'+ @group_id +'/schedulings', class: "btn btn-primary" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+  <%= link_to '/dashboard/'+ @group_id +'/schedulings/destroy/'+@scheduling.id.to_s, method: 'delete', class: "btn btn-danger", data: { confirm: "Are you sure" } do %>
+    <%= octicon "trashcan" %> Delete
+  <% end %>
+</div>
+<%= form_tag("/dashboard/"+ @group_id +"/schedulings/"+@scheduling.id.to_s+"/update", method: "put") do %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= label_tag(:id, "Id:") %>
+      <%= @scheduling.id %>
+      <%= hidden_field(:scheduling, :id) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:name, "Name:") %>
+      <%= text_field(:scheduling, :name) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:description, "Description:") %>
+      <%= text_field(:scheduling, :description) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:start_date, "start_date:") %>
+      <%= date_field(:scheduling, :start_date) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:end_date, "end_date:") %>
+      <%= date_field(:scheduling, :end_date) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:monday, "monday:") %>
+      <%= check_box(:scheduling, :monday) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:tuesday, "tuesday:") %>
+      <%= check_box(:scheduling, :tuesday) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:wednesday, "wednesday:") %>
+      <%= check_box(:scheduling, :wednesday) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:thursday, "thursday:") %>
+      <%= check_box(:scheduling, :thursday) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:friday, "friday:") %>
+      <%= check_box(:scheduling, :friday) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:saturday, "saturday:") %>
+      <%= check_box(:scheduling, :saturday) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:sunday, "sunday:") %>
+      <%= check_box(:scheduling, :sunday) %>
+    </li>
+    <li class="list-group-item">
+      <%= submit_tag("Save", class: "btn btn-success") %>
+    </li>
+  </ul>
+<% end %>

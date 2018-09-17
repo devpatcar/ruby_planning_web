@@ -1,0 +1,14 @@
+<h1>Create Dashboard</h1>
+<div class="d-flex w-100">
+  <%= link_to '/dashboard', class: "btn btn-success" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+</div>
+
+<%= form_tag("/dashboard/create", method: "post") do %>
+<ul class="list-group">
+  <li class="list-group-item"><%= label_tag(:name, "Name:") %> <%= text_field_tag(:name) %></li>
+  <li class="list-group-item"><%= label_tag(:description, "Description:") %> <%= text_field_tag(:description) %></li>
+  <li class="list-group-item"><%= submit_tag("Create", class: "btn btn-success", data: { disable_with: "Creating dashboard..." }) %></li>
+</ul>
+<% end %>

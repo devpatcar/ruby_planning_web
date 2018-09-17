@@ -1,0 +1,35 @@
+<h1>Edit</h1>
+<div class="d-flex w-100 justify-content-between">
+  <%= link_to '/dashboard', class: "btn btn-success" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+  <%= link_to '/dashboard/destroy/'+@group.id.to_s, method: 'delete', class: "btn btn-danger", data: { confirm: "Are you sure" } do %>
+    <%= octicon "trashcan" %> Delete
+  <% end %>
+</div>
+
+<%= form_tag("/dashboard/update", method: "put") do %>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <%= label_tag(:id, "Id:") %>
+            <%= @group.id %>
+            <%= hidden_field(:group, :id) %>
+        </li>
+        <li class="list-group-item">
+            <%= label_tag(:name, "Name:") %>
+            <%= text_field(:group, :name) %>
+        </li>
+        <li class="list-group-item">
+            <%= label_tag(:description, "Description:") %>
+            <%= text_field(:group, :description) %>
+        </li>
+        <li class="list-group-item">
+            <%= submit_tag("Save", class: "btn btn-success") %>
+        </li>
+    </ul>
+<% end %>
+
+<div class="list-group">
+    <%= link_to '/dashboard/'+@group.id.to_s+'/tasks', class: "list-group-item list-group-item-action list-group-item-info" do %>Tasks <%= octicon "chevron-right" %><% end %>
+    <%= link_to '/dashboard/'+@group.id.to_s+'/schedulings', class: "list-group-item list-group-item-action list-group-item-info" do %>Schedulings <%= octicon "chevron-right" %><% end %>
+</div>

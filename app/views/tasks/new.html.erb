@@ -1,0 +1,25 @@
+<h1>Create Task</h1>
+<div class="d-flex w-100">
+  <%= link_to '/dashboard/'+ @group_id +'/tasks', class: "btn btn-primary" do %>
+    <%= octicon "chevron-left" %> Back
+  <% end %>
+</div>
+<%= form_tag("/dashboard/"+ @group_id +"/tasks/create", method: "post") do %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= label_tag(:name, "Name:") %>
+      <%= text_field_tag(:name) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:description, "Description:") %>
+      <%= text_field_tag(:description) %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag(:input_type, "Inputtype:") %>
+      <%= text_field_tag(:input_type) %>
+    </li>
+    <li class="list-group-item">
+      <%= submit_tag("Create", class: "btn btn-success", data: { disable_with: "Creating task..."}) %>
+    </li>
+  </ul>
+<% end %>

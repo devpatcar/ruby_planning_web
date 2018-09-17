@@ -1,0 +1,26 @@
+<h1>Work</h1>
+<div class="d-flex w-100 flex-row-reverse filter-done-button">
+  <%= link_to 'Filter Done', '/?filter_done='+@filter_done.to_s, class: "btn btn-sm btn-info" %>
+</div>
+<div class="list-group">
+  <% @groups.each do |group| %>
+    <% status = get_tasks_done(group.id) %>
+    <% if status.undone > 0 %>
+      <a href="/dashboard/<%= group.id %>/work" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= group.name %></h5>
+          <small><%= octicon "check" %> <span class="badge badge-primary badge-pill"><%= status.done.to_s %></span> <%= octicon "x" %> <span class="badge badge-primary badge-pill"><%= status.undone.to_s %></small>
+        </div>
+        <p class="mb-1"><%= group.description %></p>
+      </a>
+    <% else %>
+      <div class="list-group-item list-group-item-success flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= group.name %></h5>
+          <small><%= octicon "check" %> <span class="badge badge-primary badge-pill"><%= status.done.to_s %></span> <%= octicon "x" %> <span class="badge badge-primary badge-pill"><%= status.undone.to_s %></small>
+        </div>
+        <p class="mb-1"><%= group.description %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
